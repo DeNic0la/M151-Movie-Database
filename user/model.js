@@ -26,12 +26,12 @@ Users.hasMany(Movies, {
     foreginKey: 'user'
 });
 export async function geet(id) {
-    return Users.findByPk(id)
+    return Users.findByPk(id);
 }
 export async function get(query = {}){
 
     if (!query) {
         return {};
     }
-    return await Users.findOne({where: query})
+    return await Users.findOne({where: query});
 }
