@@ -1,0 +1,20 @@
+name: lint-check
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  EsLintCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Install modules
+        run: npm
+      - name: Run ESLint
+        run: eslint . --ext .js --fix
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ES-Lint-Fixes
+          file_pattern: ./*.js
