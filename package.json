@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint ./*.js",
+    "lint:fix": "eslint ./*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/DeNic0la/M151-Movie-Database/issues"
   },
-  "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme"
+  "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme",
+  "devDependencies": {
+    "eslint": "^8.16.0"
+  }
 }
