@@ -1,0 +1,28 @@
+{
+  "name": "m151-movie-database",
+  "version": "1.0.0",
+  "description": "BBZW Project by Nicola, Laurin and Fabian",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeNic0la/M151-Movie-Database.git"
+  },
+  "dependencies": {
+    "connect-ensure-login": "^0.1.1",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeNic0la/M151-Movie-Database/issues"
+  },
+  "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme"
+}
