@@ -1,12 +1,28 @@
 import mysql from 'mysql2/promise';
+import {getSequelize} from "../config/sequelize.js";
 
-const connection = await mysql.createConnection({
-    host: '127.0.0.1',
-    port: 3306,
-    user: 'vmadmin',
-    password: 'sml12345',
-    database: 'moviedb',
-});
+const sequelize = getSequelize();
+
+const Movies = sequelize.define(
+    "Movies",
+    {
+        title: {
+            type: Sequelize.STRING,
+        },
+        year: {
+            type: Sequelize.INTEGER,
+        },
+        public: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: true,
+        },
+        user: {
+            type: Sequelize.STRING,
+            allowNull: true,
+        }
+    },
+    {timestamps: false}
+);
 
 await connection.connect();
 
