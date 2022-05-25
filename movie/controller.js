@@ -10,7 +10,7 @@ export async function listAction(request, response) {
 
 export async function removeAction(request, response) {
     const id = parseInt(request.params.id, 10);
-    await remove(id);
+    await remove(id,request.user.id);
     response.redirect(request.baseUrl);
 }
 
@@ -28,12 +28,24 @@ export async function formAction(request, response) {
 }
 
 export async function saveAction(request, response) {
-    const movie = {
-        id: request.body.id,
-        title: request.body.title,
-        year: request.body.year,
-        public: request.body.public
-    };
-    await save(movie, request.user.id);
+    let movie = null;
+    if (request.body.public === "public"){
+        movie = {
+            id: request.body.id,
+            title: request.body.title,
+            year: request.body.year,
+            public: true,
+        };
+    }
+    else {
+        movie = {
+            id: request.body.id,
+            title: request.body.title,
+            year: request.body.year,
+            public: false,
+            user: request.session.id,
+        };
+    }
+    await save(movie);
     response.redirect(request.baseUrl);
 }

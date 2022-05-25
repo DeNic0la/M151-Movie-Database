@@ -1,23 +1,37 @@
-import mysql from 'mysql2/promise';
-// TODO REFACTOR
-const connection = await mysql.createConnection({
-    host: '127.0.0.1',
-    port: 3306,
-    user: 'vmadmin',
-    password: 'sml12345',
-    database: 'moviedb',
-});
-await connection.connect();
-export async function get(query = {}) {
-    const queryElements = [];
-    if (query) {
-        for (let key in query) {
-            queryElements.push(`${key} = ?`);
+import {getSequelize} from "../config/sequelize.js";
+import {Op, Sequelize} from "sequelize";
+import {Movies} from "../movie/model.js";
+
+const sequelize = getSequelize();
+
+export const Users = sequelize.define(
+    "User",
+    {
+        fistname: {
+            type: Sequelize.STRING,
+        },
+        lastname: {
+            type: Sequelize.STRING,
+        },
+        username: {
+            type: Sequelize.STRING,
+        },
+        password: {
+            type: Sequelize.STRING,
         }
+    },
+    {timestamps: false}
+);
+Users.hasMany(Movies, {
+    foreginKey: 'user'
+});
+export async function geet(id) {
+    return Users.findByPk(id)
+}
+export async function get(query = {}){
+
+    if (!query) {
+        return {};
     }
-    const queryString = `SELECT * FROM Users WHERE ${queryElements.join(
-        ' AND ',
-    )}`;
-    const [data] = await connection.query(queryString, Object.values(query));
-    return data.pop();
+    return await Users.findOne({where: query})
 }
