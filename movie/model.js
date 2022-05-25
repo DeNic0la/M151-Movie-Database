@@ -1,5 +1,6 @@
 import mysql from 'mysql2/promise';
 import {getSequelize} from "../config/sequelize.js";
+import {Op, Sequelize} from "sequelize";
 
 const sequelize = getSequelize();
 
@@ -28,9 +29,14 @@ await connection.connect();
 
 //TODO Fileter
 export async function getAll(userid) {
-    const query = 'SELECT * FROM Movies where user = ? OR public = 1';
-    const [data] = await connection.query(query, [userid]);
-    return data;
+    return Movies.findAll({
+        where: {
+            [Op.or]: [
+                {public: true},
+                {user: userid}
+            ]
+        }
+    })
 }
 
 async function insert(movie, userid) {
@@ -45,22 +51,23 @@ async function update(movie) {
     return movie;
 }
 
-export async function get(movie, userid) {
-    const query = 'SELECT * FROM Movies WHERE id = ? AND user = ? OR public = 1';
-    const [data] = await connection.query(query, [movie.id, userid]);
-    return data.pop();
-}
+export async function get(id, uid) {
 
-export async function remove(id) {
-    const query = 'DELETE FROM Movies WHERE id = ?';
-    await connection.query(query, [id]);
-    return;
-}
-
-export function save(movie, userid) {
-    if (!movie.id) {
-        return insert(movie, userid);
-    } else {
-        return update(movie);
+    let m = await Movies.findByPk(id);
+    if (m.public === true || m.user === uid) {
+        return m;
     }
+    return null
+}
+
+export async function remove(id, uid) {
+    let m = await Movies.findByPk(id);
+    if (m.public === true || m.user === uid) {
+        await m.destroy();
+    }
+
+}
+
+export function save(movie) {
+    Movies.upsert(movie)
 }
