@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/DeNic0la/M151-Movie-Database/issues"
   },
-  "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme"
+  "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme",
+  "devDependencies": {
+    "eslint": "^8.16.0"
+  }
 }
