@@ -13,7 +13,7 @@ export function getSequelize() {
         },
     );
 }
-const sequelize = getSequelize()
+const sequelize = getSequelize();
 
 const Movies = sequelize.define(
     "Movies",
@@ -44,7 +44,7 @@ export function getAll(uid) {
                 {user: uid}
             ]
         }
-    })
+    });
 }
 
 export async function get(id, uid) {
@@ -52,7 +52,7 @@ export async function get(id, uid) {
     if (m.public === true || m.user === uid) {
         return m;
     }
-    return null
+    return null;
 }
 
 export async function remove(id, uid) {
@@ -64,5 +64,5 @@ export async function remove(id, uid) {
 
 export function save(movie) {
     console.log(movie);
-    Movies.upsert(movie)
+    Movies.upsert(movie);
 }
