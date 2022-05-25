@@ -22,6 +22,8 @@ It will also run on every Push.
 For the Database we use a Database on Docker. There is a Run Config.
 If you dont run the Container over the Run Config make sure to name the Container "Movie-DB" and
 the MYSQL_ROOT_PASSWORD "sml12345" and the MYSQL_ROOT_HOST "%" and use the Local Port 1235.
+Passwort für die ersten beiden Benutzer ist sml12345
+
 
 #### SQL
 All the SQL Code to set up the Database needs to be in the [Init.sql File](init.sql).
