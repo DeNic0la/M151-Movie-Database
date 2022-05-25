@@ -1,5 +1,7 @@
 USE movie-db;
-CREATE TABLE `Movies` (`id` int(11) NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `Movies` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
 `title` varchar(255) DEFAULT NULL,
 `year` int(11) DEFAULT NULL,
 `user` varchar(255) DEFAULT NULL,
@@ -7,7 +9,7 @@ CREATE TABLE `Movies` (`id` int(11) NOT NULL AUTO_INCREMENT,
  PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `User` (
+CREATE TABLE `Users` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `firstname` varchar(255) DEFAULT NULL,
 `lastname` varchar(255) DEFAULT NULL,
@@ -16,6 +18,6 @@ CREATE TABLE `User` (
  PRIMARY KEY (`id`)
 );
 
-INSERT INTO `User` (firstname,lastname,username,password) values ("Max","Mustermann","MM","8436ca57461542199cc185ab5c0982ca");
-INSERT INTO `User` (firstname,lastname,username,password) values ("Maxine","Mustermann","MM2","8436ca57461542199cc185ab5c0982ca");
+INSERT INTO `Users` (firstname,lastname,username,password) values ("Max","Mustermann","MM","8436ca57461542199cc185ab5c0982ca");
+INSERT INTO `Users` (firstname,lastname,username,password) values ("Maxine","Mustermann","MM2","8436ca57461542199cc185ab5c0982ca");
 

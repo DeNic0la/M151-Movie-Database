@@ -5,7 +5,7 @@ import {Movies} from "../movie/model.js";
 const sequelize = getSequelize();
 
 export const Users = sequelize.define(
-    "User",
+    "Users",
     {
         fistname: {
             type: Sequelize.STRING,
@@ -25,9 +25,7 @@ export const Users = sequelize.define(
 Users.hasMany(Movies, {
     foreginKey: 'user'
 });
-export async function geet(id) {
-    return Users.findByPk(id);
-}
+
 export async function get(query = {}){
 
     if (!query) {
