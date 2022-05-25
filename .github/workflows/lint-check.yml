@@ -4,7 +4,7 @@ on:
     branches: [ main ]
 
 jobs:
-  es-lint-fixes:
+  es-lint-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
