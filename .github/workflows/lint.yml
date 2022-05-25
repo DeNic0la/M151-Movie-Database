@@ -11,7 +11,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Install modules
-        run: npm
+        run: npm i
       - name: Run ESLint
         run: eslint . --ext .js --fix
       - uses: stefanzweifel/git-auto-commit-action@v4
