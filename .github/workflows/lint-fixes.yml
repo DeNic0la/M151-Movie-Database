@@ -1,15 +1,12 @@
-name: lint-check
-on:
-  pull_request:
-    branches: [ main ]
+name: lint-fixes
+on: push
+
 
 jobs:
-  EsLintCheck:
+  es-lint-fixes:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install modules
         run: npm i
       - name: Run ESLint
