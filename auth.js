@@ -6,7 +6,7 @@ import { get } from "./user/model.js";
 export default function (app) {
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser(async (id, done) => {
-        const user = await get({ id });
+        const user = await get(id);
         if (!user) {
             done("User not found");
         } else {

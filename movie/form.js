@@ -1,4 +1,5 @@
 export function render(movie) {
+    let checked = movie.public===true?"checked":"";
     return `
   <!DOCTYPE html>
   <html lang="en">
@@ -19,7 +20,7 @@ export function render(movie) {
         <input type="text" id="year" name="year" value="${movie.year}" />
       </div>
         <label for="public">Public:</label>
-        <input type="checkbox" id ="public" name = "public" value="1" checked />
+        <input type="checkbox" id ="public" name = "public" value="public" ${checked}/>
       <div>
         <button type="submit">speichern</button>
       </div>
