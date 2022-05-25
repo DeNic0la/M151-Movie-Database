@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint:js": "eslint ./*.js",
+    "lint": "npm run lint:js"
   },
   "repository": {
     "type": "git",
