@@ -17,7 +17,7 @@ export const Movies = sequelize.define(
             defaultValue: true,
         },
         user: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             allowNull: true,
         }
     },

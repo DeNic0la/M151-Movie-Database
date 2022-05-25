@@ -7,7 +7,7 @@ const sequelize = getSequelize();
 export const Users = sequelize.define(
     "Users",
     {
-        fistname: {
+        firstname: {
             type: Sequelize.STRING,
         },
         lastname: {
