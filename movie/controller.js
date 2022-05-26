@@ -43,7 +43,7 @@ export async function saveAction(request, response) {
             title: request.body.title,
             year: request.body.year,
             public: false,
-            user: request.session.id,
+            user: request.user.id,
         };
     }
     await save(movie);
