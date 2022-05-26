@@ -24,6 +24,7 @@ export const Movies = sequelize.define(
     {timestamps: false}
 );
 
+
 export async function getAll(userid) {
     return Movies.findAll({
         where: {
@@ -31,7 +32,8 @@ export async function getAll(userid) {
                 {public: true},
                 {user: userid}
             ]
-        }
+        },
+
     });
 }
 

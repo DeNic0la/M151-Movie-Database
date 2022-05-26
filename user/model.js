@@ -22,14 +22,14 @@ export const Users = sequelize.define(
     },
     {timestamps: false}
 );
-Users.hasMany(Movies, {
-    foreginKey: 'user'
-});
+
 
 export async function get(query = {}){
 
     if (!query) {
         return {};
     }
-    return await Users.findOne({where: query});
+    let options = {where: query};
+    console.log(options);
+    return await Users.findOne(options);
 }
