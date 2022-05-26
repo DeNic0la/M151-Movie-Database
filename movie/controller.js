@@ -3,7 +3,7 @@ import { render } from './view.js';
 import { render as form } from './form.js';
 
 export async function listAction(request, response) {
-    const data = await getAll(request.user.id).catch(reason => console.log(reason));
+    const data = await getAll(request.user.id);
     const body = render(data);
     response.send(body);
 }
