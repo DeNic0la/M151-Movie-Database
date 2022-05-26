@@ -18,6 +18,16 @@ CREATE TABLE `Users` (
  PRIMARY KEY (`id`)
 );
 
+CREATE TABLE `Ratings` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`user` int(11) DEFAULT NULL,
+`movie` int(11) DEFAULT NULL,
+`rating` int(11) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (user) REFERENCES Users(id),
+ FOREIGN KEY (movie) REFERENCES Movies(id)
+);
+
 INSERT INTO `Users` (firstname,lastname,username,password) values ("Max","Mustermann","MM","8436ca57461542199cc185ab5c0982ca");
 INSERT INTO `Users` (firstname,lastname,username,password) values ("Maxine","Mustermann","MM2","8436ca57461542199cc185ab5c0982ca");
 
