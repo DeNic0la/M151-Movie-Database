@@ -41,7 +41,7 @@ export async function getAll(userid) {
 export async function get(id, uid) {
 
     let m = await Movies.findByPk(id);
-    if (m.public === true || m.user === uid) {
+    if (m.public === true || parseInt(m.user) === parseInt(uid)) {
         return m;
     }
     return null;
@@ -49,7 +49,7 @@ export async function get(id, uid) {
 
 export async function remove(id, uid) {
     let m = await Movies.findByPk(id);
-    if (m.public === true || m.user === uid) {
+    if (m.public === true || parseInt(m.user) === parseInt(uid)) {
         await m.destroy();
     }
 
