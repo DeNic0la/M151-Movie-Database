@@ -28,24 +28,21 @@ export async function formAction(request, response) {
 }
 
 export async function saveAction(request, response) {
-    let movie = null;
+    let movie = {};
+    movie.title = request.body.title;
+    movie.year = request.body.year;
+    movie.title = request.body.title;
     if (request.body.public === "public"){
-        movie = {
-            id: request.body.id,
-            title: request.body.title,
-            year: request.body.year,
-            public: true,
-        };
+        movie.public = true;
     }
-    else {
-        movie = {
-            id: request.body.id,
-            title: request.body.title,
-            year: request.body.year,
-            public: false,
-            user: request.user.id,
-        };
+    else{
+        movie.public = false;
+        movie.user = request.user.id;
     }
+    if (request.body.id !== null && request.body.id !== undefined){
+        movie.id = request.body.id;
+    }
+
     await save(movie);
     response.redirect(request.baseUrl);
 }
