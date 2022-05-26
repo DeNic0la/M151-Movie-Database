@@ -1,6 +1,5 @@
 import {getSequelize} from "../config/sequelize.js";
 import {Sequelize} from "sequelize";
-import {Movies} from "../movie/model.js";
 
 const sequelize = getSequelize();
 
