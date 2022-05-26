@@ -39,7 +39,7 @@ export async function saveAction(request, response) {
         movie.public = false;
         movie.user = request.user.id;
     }
-    if (request.body.id !== null && request.body.id !== undefined){
+    if (request.body.id !== null && request.body.id !== undefined&& request.body.id !== ""){
         movie.id = request.body.id;
     }
 
