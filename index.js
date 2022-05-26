@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import { router as movieRouter } from "./movie/index.js";
 import auth from "./auth.js";
 import { ensureLoggedIn } from "connect-ensure-login";
+
 const app = express();
 app.use(express.static(`${dirname(fileURLToPath(import.meta.url))}/public`));
 app.use(morgan("common", { immediate: true }));
