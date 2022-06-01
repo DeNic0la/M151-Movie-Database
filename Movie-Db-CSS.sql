@@ -33,5 +33,7 @@ CREATE TABLE `Ratings` (
 `rating` int(11) DEFAULT NULL,
  PRIMARY KEY (`id`),
  FOREIGN KEY (user) REFERENCES Users(id),
- FOREIGN KEY (movie) REFERENCES Movies(id)
+ FOREIGN KEY (movie) REFERENCES Movies(id),
+ CONSTRAINT `rating_one` CHECK ((`rating` <= 1)),
+ CONSTRAINT `rating_five` CHECK ((`rating` >= 5)),
 );
