@@ -36,7 +36,7 @@ export async function getAll(userid) {
 async function insert(movie, userid) {
     const query = 'INSERT INTO Movies (title, year, user, public) VALUES (?, ?, ?, ?)';
     const [result] = await connection.query(query, [movie.title, movie.year, userid, movie.public]);
-    return { ...movie, id: result.insertId };
+    return {...movie, id: result.insertId};
 }
 
 async function update(movie) {
@@ -46,7 +46,7 @@ async function update(movie) {
 }
 
 export async function get(movie, userid) {
-    const query = 'SELECT * FROM Movies WHERE id = ? AND user = ? OR public = 1';
+    const query = 'SELECT Movies.id, Movies.title, Movies.year, Movies.public, Ratings.rating FROM Movies JOIN Ratings ON Movies.id=Ratings.movie WHERE id = ? AND user = ? OR public = 1';
     const [data] = await connection.query(query, [movie.id, userid]);
     return data.pop();
 }
