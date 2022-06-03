@@ -52,8 +52,10 @@ export async function get(movie, userid) {
 }
 
 export async function remove(id) {
-    const query = 'DELETE FROM Movies WHERE id = ?';
-    await connection.query(query, [id]);
+    const deleteMovieQuery = 'DELETE FROM Movies WHERE id = ?';
+    const deleteRatingQuery = 'DELETE FROM Ratings WHERE movie = ?';
+    await connection.query(deleteMovieQuery, [id]);
+    await connection.query(deleteRatingQuery, [id]);
     return;
 }
 
