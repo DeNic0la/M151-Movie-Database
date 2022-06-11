@@ -11,7 +11,7 @@ export let sequelize = new Sequelize(
         port: 1235,
     },
 );
-sequelize.authenticate().then(function(errors) {
+sequelize.authenticate().then(function() {
     console.log("Connected to Database");
 }).catch(function (errors) {
     console.log(errors);
