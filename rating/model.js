@@ -21,7 +21,7 @@ export async function getAvgRatingByMovieId(movieId) {
         where: {
             movie: movieId
         }
-    })
+    });
     let sum = 0;
     let count = ratings.length;
     if (count === 0){
@@ -53,12 +53,12 @@ export async function addOrEdditRating(userId,movieId,rating) {
                 }
             ]
         }
-    })
+    });
     if (!data){
         data = {
             movie: movieId,
             user: userId,
-        }
+        };
     }
     data.rating = rating;
     await Ratings.upsert(data);
