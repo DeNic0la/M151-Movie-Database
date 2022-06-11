@@ -14,27 +14,6 @@ export async function getAll(userid) {
     });
 }
 
-export async function getAllMoviesWithRating(userId) {
-    return Movies.findAll({
-        where:{
-            [Op.or]: [
-                {public: true},
-                {user: userId}
-            ]
-        },
-        include: [
-            {
-                model: Ratings,
-                attributes:[
-                    [Sequelize.fn('AVG','Rating.rating'),'avgRating']
-                ],
-            },
-        ],
-        group: ['Movies.id']
-
-    });
-}
-
 
 export async function get(id, uid) {
 
