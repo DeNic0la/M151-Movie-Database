@@ -7,7 +7,8 @@ export const Ratings = sequelize.define(
     {
         id: {
             type: Sequelize.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            select: false,
         },
         user: {
             type: Sequelize.INTEGER,

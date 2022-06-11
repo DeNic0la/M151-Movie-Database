@@ -1,5 +1,5 @@
-import {Movies} from "../model/model.js";
-import {Op} from "sequelize";
+import {Movies, Ratings} from "../model/model.js";
+import {Op, Sequelize} from "sequelize";
 
 
 export async function getAll(userid) {
@@ -10,6 +10,27 @@ export async function getAll(userid) {
                 {user: userid}
             ]
         },
+
+    });
+}
+
+export async function getAllMoviesWithRating(userId) {
+    return Movies.findAll({
+        where:{
+            [Op.or]: [
+                {public: true},
+                {user: userId}
+            ]
+        },
+        include: [
+            {
+                model: Ratings,
+                attributes:[
+                    [Sequelize.fn('AVG','Rating.rating'),'avgRating']
+                ],
+            },
+        ],
+        group: ['Movies.id']
 
     });
 }
