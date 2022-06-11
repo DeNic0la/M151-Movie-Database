@@ -1,5 +1,6 @@
-import {Op} from "sequelize/types/index.js";
 import {Movies} from "../model/model.js";
+import {Op} from "sequelize";
+
 
 export async function getAll(userid) {
     return Movies.findAll({

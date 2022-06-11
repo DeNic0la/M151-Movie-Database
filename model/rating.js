@@ -1,8 +1,6 @@
-import {getSequelize} from "../config/sequelize.js";
+import {sequelize} from "../config/sequelize.js";
 import {Op, Sequelize, DataTypes} from "sequelize";
 
-
-const sequelize = getSequelize();
 
 export const Ratings = sequelize.define(
     "Ratings",
