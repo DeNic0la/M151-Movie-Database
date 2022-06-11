@@ -32,5 +32,9 @@
   "homepage": "https://github.com/DeNic0la/M151-Movie-Database#readme",
   "devDependencies": {
     "eslint": "^8.16.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }
