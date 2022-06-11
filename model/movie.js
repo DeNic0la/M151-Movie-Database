@@ -1,8 +1,7 @@
-import {getSequelize} from "../config/sequelize.js";
+import {sequelize} from "../config/sequelize.js";
 import {Op, Sequelize} from "sequelize";
 
 
-const sequelize = getSequelize();
 
 export const Movies = sequelize.define(
     "Movies",
