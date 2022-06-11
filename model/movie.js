@@ -1,5 +1,5 @@
 import {sequelize} from "../config/sequelize.js";
-import {Op, Sequelize} from "sequelize";
+import {Sequelize} from "sequelize";
 
 
 
