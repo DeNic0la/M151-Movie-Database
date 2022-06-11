@@ -12,7 +12,8 @@ export let sequelize = new Sequelize(
     },
 );
 sequelize.authenticate().then(function(errors) {
+    console.log("Connected to Database");
+}).catch(function (errors) {
     console.log(errors);
     throw new Error('Datenbankverbindung konnte nicht Hergestellt werden')
-
-});
+})
