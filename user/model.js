@@ -1,27 +1,4 @@
-import {getSequelize} from "../config/sequelize.js";
-import {Sequelize} from "sequelize";
-
-const sequelize = getSequelize();
-
-export const Users = sequelize.define(
-    "Users",
-    {
-        firstname: {
-            type: Sequelize.STRING,
-        },
-        lastname: {
-            type: Sequelize.STRING,
-        },
-        username: {
-            type: Sequelize.STRING,
-        },
-        password: {
-            type: Sequelize.STRING,
-        }
-    },
-    {timestamps: false}
-);
-
+import {Users} from "../model/model.js";
 
 export async function get(query = {}){
 
