@@ -1,29 +1,5 @@
-import {getSequelize} from "../config/sequelize.js";
-import {Op, Sequelize} from "sequelize";
-
-const sequelize = getSequelize();
-
-export const Movies = sequelize.define(
-    "Movies",
-    {
-        title: {
-            type: Sequelize.STRING,
-        },
-        year: {
-            type: Sequelize.INTEGER,
-        },
-        public: {
-            type: Sequelize.BOOLEAN,
-            defaultValue: true,
-        },
-        user: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-        }
-    },
-    {timestamps: false}
-);
-
+import {Op} from "sequelize/types/index.js";
+import {Movies} from "../model/model.js";
 
 export async function getAll(userid) {
     return Movies.findAll({
