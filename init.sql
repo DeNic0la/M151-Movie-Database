@@ -31,3 +31,8 @@ CREATE TABLE `Ratings` (
 INSERT INTO `Users` (firstname,lastname,username,password) values ("Max","Mustermann","MM","8436ca57461542199cc185ab5c0982ca");
 INSERT INTO `Users` (firstname,lastname,username,password) values ("Maxine","Mustermann","MM2","8436ca57461542199cc185ab5c0982ca");
 
+CREATE OR REPLACE VIEW RatedMovies AS
+    SELECT Movies.id, Movies.title, Movies.year, Movies.user, Movies.public, IFNULL( avg(rating), 0) as Rating FROM Movies
+    Left join Ratings R on Movies.id = R.movie
+    GROUP BY Movies.id;
+
