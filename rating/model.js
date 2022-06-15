@@ -79,5 +79,5 @@ export async function getRatingByMovieIdAndUserID(movieId,userId) {
             ]
         }
     });
-    return ratings
+    return ratings;
 }
