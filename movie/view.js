@@ -1,16 +1,14 @@
 function renderRating(amount, movieId){
     let str = "";
     for (let i = 1; i <= 5; i++) {
+        str += `<a href="/rating/${movieId}/${amount}">`
         if (amount >= i){
-            str += `
-                <a href="TODO">★</a>
-            `
+            str += "★"
         }
         else {
-            str += `
-                <a href="TODO">☆</a>
-            `
+            str += "☆"            
         }
+        str += "</a>"
     }
     return str;
 }
