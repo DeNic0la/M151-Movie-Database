@@ -63,3 +63,22 @@ export async function addOrEdditRating(userId,movieId,rating) {
     data.rating = rating;
     await Ratings.upsert(data);
 }
+
+
+/**
+ * Returns a rating a user made
+ * @param movieId the ID of the Movie
+ * @param userId id of the current user
+ * @returns {Promise<Model<any, TModelAttributes>>}
+ */
+export async function getRatingByMovieIdAndUserID(movieId,userId) {
+    let ratings = await Ratings.findOne({
+        where: {
+            [Op.and]:[
+                {movie: movieId},
+                {user: userId}
+            ]
+        }
+    });
+    return ratings
+}
