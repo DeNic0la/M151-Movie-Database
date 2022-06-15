@@ -1,5 +1,5 @@
-import {Movies, Ratings} from "../model/model.js";
-import {Op, Sequelize} from "sequelize";
+import {Movies} from "../model/model.js";
+import {Op } from "sequelize";
 import {sequelize} from "../config/sequelize.js";
 
 
