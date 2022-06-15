@@ -62,6 +62,7 @@ export async function addOrEdditRating(userId,movieId,rating) {
     }
     data.rating = rating;
     await Ratings.upsert(data);
+
 }
 
 /**
