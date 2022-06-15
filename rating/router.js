@@ -5,6 +5,6 @@ import {
 
 const router = Router();
 
-router.get('/rating/:movieId/:rating', fabiansFunction);
+router.get('/:movieId/:rating', fabiansFunction);
 
 export { router };
