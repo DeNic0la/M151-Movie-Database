@@ -2,20 +2,25 @@ import {  getAvgRatingByMovieId, addOrEdditRating, getRatingByMovieIdAndUserID }
 
 //expects movieId returns rating obj
 export async function getRatingbyMovieId(request, response) {
-  const data = getAvgRatingByMovieId(request.params.movieId);
+  const movieId =request.params.movieId;
+  console.log("Input" + movieId);
+  const data = getAvgRatingByMovieId(movieId);
+  console.log(data);
   response.send(data);
 }
 
 //expects movieId, userId
 export async function getRatingByUserId(request, response) {
   let movieId = request.params.movieId;
-  console.log(movieId)
+  console.log("Output" + movieId);
   const data = await getRatingByMovieIdAndUserID(movieId, request.user.id);
   response.send(data);
 }
 
 //expects movieid, rating
 export async function saveRating(request, response) {
+  console.log(request.params.movieId);
+  console.log(request.params.rating);
   await addOrEdditRating(request.user.id, request.params.movieId, request.params.rating);
-  response.redirect(request.baseUrl);
+  response.redirect("/");
 }
