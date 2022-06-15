@@ -1,13 +1,13 @@
-import { response } from "express";
-import { getAvgRatingByMovie, getAvgRatingByMovieId, addOrEdditRating } from "./model";
+import {  getAvgRatingByMovieId, addOrEdditRating } from "./model";
 
-//expects movieId
-export async getRatingbyMovieId(request, response) {
-  let movie = { id: "", title: "", year: "", public: ""};
-  response.send(body);
+//expects movieId returns rating obj
+export async function getRatingbyMovieId(request, response) {
+  const data = await getAvgRatingByMovieId(request.params.id);
+  response.send(data);
 }
 
-//expects moveid, rating and returns rating obj
-export async saveRating(request, response) {
-  response.send(body);
+//expects moveid, rating
+export async function saveRating(request, response) {
+  await addOrEdditRating(request.user.id, request.params.id, request.params.rating );
+  response.redirect(request.baseUrl);
 }
