@@ -71,6 +71,7 @@ export async function addOrEdditRating(userId,movieId,rating) {
  * @returns {Promise<Model<any, TModelAttributes>>}
  */
 export async function getRatingByMovieIdAndUserID(movieId, userId) {
+
     let ratings = await Ratings.findOne({
         where: {
             [Op.and]:[
