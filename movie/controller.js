@@ -31,7 +31,6 @@ export async function saveAction(request, response) {
     let movie = {};
     movie.title = request.body.title;
     movie.year = request.body.year;
-    movie.title = request.body.title;
     if (request.body.public === "public"){
         movie.public = true;
     }
