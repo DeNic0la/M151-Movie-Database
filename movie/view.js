@@ -33,7 +33,7 @@ export function render(movies) {
         <tr>
           <td>${movie.id}</td>
           <td>${movie.title}</td>
-          <td>${renderRating(movie.rating,movie.id)}</td> 
+          <td>${renderRating(movie.userRating, movie.id)}</td> 
           <td>${movie.avg}</td>
           <td><a href="/movie/delete/${movie.id}">löschen</a></td>
           <td><a href="/movie/form/${movie.id}">bearbeiten</a></td>
