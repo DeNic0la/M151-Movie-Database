@@ -18,7 +18,7 @@ export async function getAll(userid) {
 export async function getAllMoviesWithRating(userId) {
     const movies = await sequelize.query("select Movies.id,Movies.title,Movies.year, IFNULL(avg(Ratings.rating),0) as score from `Movies` Left Join `Ratings` on Ratings.movie = Movies.id WHERE Movies.public = true OR Movies.user = \'"+userId +"\' Group by Movies.id;" );
     console.log(movies);
-    return movies;
+    return movies[0];
 }
 
 export async function get(id, uid) {
