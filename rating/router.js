@@ -1,10 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
-    fabiansFunction
-} from './controller.js';
+    getRatingbyMovieId,
+    getRatingByUserID,
+    saveRating,
+} from "./controller.js";
 
 const router = Router();
 
-router.get('/:movieId/:rating', fabiansFunction);
+router.get("/rating/getMovieId/:rating", getRatingbyMovieId);
+router.get("/rating/getUserId/:rating", getRatingByUserID);
+router.post("/rating/save/:rating", saveRating);
 
 export { router };
