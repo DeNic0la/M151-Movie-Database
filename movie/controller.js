@@ -1,9 +1,9 @@
-import { getAll, remove, get, save } from './model.js';
+import { remove, get, save, getAllMoviesWithRating} from './model.js';
 import { render } from './view.js';
 import { render as form } from './form.js';
 
 export async function listAction(request, response) {
-    const data = await getAll(request.user.id);
+    const data = await getAllMoviesWithRating(request.user.id);
     const body = render(data);
     response.send(body);
 }
