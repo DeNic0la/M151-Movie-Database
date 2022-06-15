@@ -3,6 +3,7 @@ import {Op, Sequelize} from "sequelize";
 import {sequelize} from "../config/sequelize.js";
 
 
+
 export async function getAll(userid) {
     return Movies.findAll({
         where: {
