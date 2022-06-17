@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### General Note
-We use a MySQL database on Docker. This is the only way we tested it. There is a [Init.sql File](init.sql) File, this is the SQL-Code to set up the Database for the Application to run with. 
+We use a MySQL database on Docker. This is the only way we tested it. There is a [Init.sql File](init.sql), this is the SQL-Code to set up the Database for the Application to run with. If you are Running into Issues, make sure the [Sequelize Config File](config/sequelize.js) matches your database.
 
 ### Pull Requests
 Dont Push into Master, it will not work.
