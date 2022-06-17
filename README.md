@@ -2,6 +2,9 @@
 
 ## Getting Started
 
+### General Note
+We use a MySQL database on Docker. This is the only way we tested it. There is a [Init.sql File](init.sql) File, this is the SQL-Code to set up the Database for the Application to run with. 
+
 ### Pull Requests
 Dont Push into Master, it will not work.
 Make a Pull-Request to keep the Code Clean.
