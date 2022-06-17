@@ -1,5 +1,7 @@
 # M152-Movie-Database
 
+This Repository is for an Educational Project at BBZW. There are strict Requirements about the Technologies involved and about how the Application needs to implement certain things. If you are a Student at BBZW feel free to Copy all you want.
+
 ## Getting Started
 
 ### General Note
