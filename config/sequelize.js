@@ -7,7 +7,7 @@ export let sequelize = new Sequelize(
     {
         dialect: "mysql",
         database: "movie-db",
-        host: "127.0.0.1",
+        host: "host.docker.internal",
         port: 1235,
     },
 );

@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  node-app:
+    container_name: node-app
+    build: .
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+  database:
+    image: mysql
+    container_name: movie-db-app
+    ports:
+      - "1235:3306"
+    environment:
+      - MYSQL_DATABASE=movie-db
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=sml12345

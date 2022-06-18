@@ -1,5 +1,17 @@
 # M152-Movie-Database
 
+## Run a Demo
+I made a Simple 4 Steps programm on how to start the Application Demo.
+### Step 1
+Vertify that Docker and Docker-Compose are installed and that the Ports 1235 and 8080 are Free. You need an Active internet connection for the Build Process
+### Step 2
+Run the [docker-compose.yaml](docker-compose.yaml) File. Wait for it to start up.
+### Step 3
+Run the Following command.
+### Step 4
+Open this link [localhost:8080](http://localhost:8080)
+
+
 ## Getting Started
 
 ### Pull Requests
