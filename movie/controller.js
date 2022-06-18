@@ -11,7 +11,10 @@ export async function listAction(request, response) {
 export async function removeAction(request, response) {
     const id = parseInt(request.params.id, 10);
     await remove(id,request.user.id);
-    response.redirect(request.baseUrl);
+
+    const data = await getAllMoviesWithRating(request.user.id);
+    const body = render(data);
+    response.send(body)
 }
 
 export async function formAction(request, response) {
