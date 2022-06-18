@@ -14,7 +14,7 @@ export async function removeAction(request, response) {
 
     const data = await getAllMoviesWithRating(request.user.id);
     const body = render(data);
-    response.send(body)
+    response.send(body);
 }
 
 export async function formAction(request, response) {
