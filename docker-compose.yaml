@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.0"
 services:
   node-app:
     container_name: node-app
@@ -9,6 +9,7 @@ services:
       - "8080:8080"
   database:
     image: mysql
+    hostname: database
     container_name: movie-db-app
     ports:
       - "1235:3306"
