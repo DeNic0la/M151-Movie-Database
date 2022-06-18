@@ -8,12 +8,17 @@ export let sequelize = new Sequelize(
         dialect: "mysql",
         database: "movie-db",
         host: "database",
-        port: 1235,
+        port: 3306,
     },
 );
-sequelize.authenticate().then(function() {
-    console.log("Connected to Database");
-}).catch(function (errors) {
-    console.log(errors);
-    throw new Error('Datenbankverbindung konnte nicht Hergestellt werden');
-});
+let isConnected = false;
+while (!isConnected){
+    sequelize.authenticate().then(function() {
+        isConnected = true;
+        console.log("Connected to Database");
+    }).catch(function (errors) {
+        console.log(errors);
+        throw new Error('Datenbankverbindung konnte nicht Hergestellt werden');
+    });
+}
+
