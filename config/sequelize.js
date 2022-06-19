@@ -7,8 +7,8 @@ export let sequelize = new Sequelize(
     {
         dialect: "mysql",
         database: "movie-db",
-        host: "database",
-        port: 3306,
+        host: "localhost",
+        port: 1235,
     },
 );
 let isConnected = false;

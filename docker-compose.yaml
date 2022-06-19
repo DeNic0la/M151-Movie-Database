@@ -5,6 +5,7 @@ services:
     build: .
     depends_on:
       - database
+    mem_reservation: 500m
     ports:
       - "8080:8080"
   database:

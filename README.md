@@ -5,13 +5,29 @@ I made a Simple 4 Steps programm on how to start the Application Demo. This only
 ### Step 1
 Vertify that Docker and Docker-Compose are installed and that the Ports 1235 and 8080 are Free. You need an Active internet connection for the Build Process
 ### Step 2
-Run the [docker-compose.yaml](docker-compose.yaml) File. Wait for it to start up.
+There is a [docker-compose.yaml](docker-compose.yaml) File. This file isnt fully functional, but it works for the Database.
+in the root directory of the project run the following command:
+``` bash
+docker-compose up -d database
+```
+With this command you start the Database container.
+Run the  Wait for it to start up.
 ### Step 3
-Run the Following command.
+Run the Following command. With this command you run the contents of the [init.sql](init.sql) in the Database Container.
 ``` bash
 docker exec -it movie-db-app mysql --password=sml12345 --user=root -e "$(cat init.sql)"
 ```
 ### Step 4
+_you need to run this command in the root dir of the Project._ 
+
+Run the following command to install the dependencies.
+``` bash
+npm i
+```
+Run the following command to start up the Application.
+``` bash
+npm start
+```
 Open this link [localhost:8080](http://localhost:8080)
 
 
