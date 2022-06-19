@@ -1,4 +1,6 @@
 # M152-Movie-Database
+This Repository is for an Educational Project at BBZW. There are strict Requirements about the Technologies involved and about how the Application needs to implement certain things. If you are a Student at BBZW feel free to Copy all you want.
+
 
 ## Run a Demo
 I made a Simple 4 Steps programm on how to start the Application Demo. This only runs on Linux.
@@ -30,8 +32,10 @@ npm start
 ```
 Open this link [localhost:8080](http://localhost:8080)
 
-
 ## Getting Started
+
+### General Note
+We use a MySQL database on Docker. This is the only way we tested it. There is a [Init.sql File](init.sql), this is the SQL-Code to set up the Database for the Application to run with. If you are Running into Issues, make sure the [Sequelize Config File](config/sequelize.js) matches your database.
 
 ### Pull Requests
 Dont Push into Master, it will not work.
