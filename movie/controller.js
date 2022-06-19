@@ -12,9 +12,8 @@ export async function removeAction(request, response) {
     const id = parseInt(request.params.id, 10);
     await remove(id,request.user.id);
 
-    const data = await getAllMoviesWithRating(request.user.id);
-    const body = render(data);
-    response.send(body);
+    // You NEEEED to Redirect here, else it will not work
+    response.redirect("/");
 }
 
 export async function formAction(request, response) {
