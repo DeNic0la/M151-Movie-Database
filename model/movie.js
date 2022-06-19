@@ -2,7 +2,6 @@ import {sequelize} from "../config/sequelize.js";
 import {Sequelize} from "sequelize";
 
 
-
 export const Movies = sequelize.define(
     "Movies",
     {

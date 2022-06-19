@@ -24,13 +24,13 @@ export async function getAvgRatingByMovieId(movieId) {
     });
     let sum = 0;
     let count = ratings.length;
-    if (count === 0){
+    if (count === 0) {
         return sum;
     }
     for (let i = 0; i < ratings.length; i++) {
         sum += ratings[i].rating;
     }
-    return sum/count;
+    return sum / count;
 }
 
 /**
@@ -40,10 +40,10 @@ export async function getAvgRatingByMovieId(movieId) {
  * @param rating new Rating, this needs to be a INT, this will not be validated
  * @returns {Promise<void>} basicly nothing
  */
-export async function addOrEdditRating(userId,movieId,rating) {
+export async function addOrEdditRating(userId, movieId, rating) {
 
     let data = await Ratings.findOne({
-        where:{
+        where: {
             [Op.and]: [
                 {
                     movie: movieId
@@ -54,13 +54,12 @@ export async function addOrEdditRating(userId,movieId,rating) {
             ]
         }
     });
-    if (!data){
+    if (!data) {
         data = {
             movie: movieId,
             user: userId,
         };
-    }
-    else{
+    } else {
         data = data.dataValues;
     }
     data.rating = parseInt(rating);
@@ -78,7 +77,7 @@ export async function addOrEdditRating(userId,movieId,rating) {
 export async function getRatingByMovieIdAndUserID(movieId, userId) {
     let ratings = await Ratings.findOne({
         where: {
-            [Op.and]:[
+            [Op.and]: [
                 {movie: movieId},
                 {user: userId}
             ]

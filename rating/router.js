@@ -1,4 +1,4 @@
-import { Router } from "express";
+import {Router} from "express";
 import {
     getRatingbyMovieId,
     getRatingByUserId,
@@ -11,4 +11,4 @@ router.get("/averageRating/:movieId", getRatingbyMovieId);
 router.get("/getUserRating/:movieId", getRatingByUserId);
 router.get("/:movieId/:rating", saveRating);
 
-export { router };
+export {router};

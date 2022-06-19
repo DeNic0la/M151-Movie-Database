@@ -1,6 +1,6 @@
-import { remove, get, save, getAllMoviesWithRating} from './model.js';
-import { render } from './view.js';
-import { render as form } from './form.js';
+import {remove, get, save, getAllMoviesWithRating} from './model.js';
+import {render} from './view.js';
+import {render as form} from './form.js';
 
 export async function listAction(request, response) {
     const data = await getAllMoviesWithRating(request.user.id);
@@ -10,17 +10,17 @@ export async function listAction(request, response) {
 
 export async function removeAction(request, response) {
     const id = parseInt(request.params.id, 10);
-    await remove(id,request.user.id);
+    await remove(id, request.user.id);
 
     // You NEEEED to Redirect here, else it will not work
     response.redirect("/");
 }
 
 export async function formAction(request, response) {
-    let movie = { id: '', title: '', year: '', public: ''};
+    let movie = {id: '', title: '', year: '', public: ''};
 
     if (request.params.id) {
-        movie = await get(parseInt(request.params.id,  10), request.user.id);
+        movie = await get(parseInt(request.params.id, 10), request.user.id);
     }
 
     console.log(movie);
@@ -33,14 +33,13 @@ export async function saveAction(request, response) {
     let movie = {};
     movie.title = request.body.title;
     movie.year = request.body.year;
-    if (request.body.public === "public"){
+    if (request.body.public === "public") {
         movie.public = true;
-    }
-    else{
+    } else {
         movie.public = false;
         movie.user = request.user.id;
     }
-    if (request.body.id !== null && request.body.id !== undefined&& request.body.id !== ""){
+    if (request.body.id !== null && request.body.id !== undefined && request.body.id !== "") {
         movie.id = request.body.id;
     }
 

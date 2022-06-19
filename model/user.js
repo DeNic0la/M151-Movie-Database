@@ -1,6 +1,5 @@
 import {sequelize} from "../config/sequelize.js";
-import {Sequelize } from "sequelize";
-
+import {Sequelize} from "sequelize";
 
 
 export const Users = sequelize.define(

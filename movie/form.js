@@ -1,5 +1,5 @@
 export function render(movie) {
-    let checked = movie.public===true?"checked":"";
+    let checked = movie.public === true ? "checked" : "";
     return `
   <!DOCTYPE html>
   <html lang="en">

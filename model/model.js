@@ -3,24 +3,24 @@ import {Users} from "./user.js";
 import {Movies} from "./movie.js";
 
 
-Movies.hasMany(Ratings,{
+Movies.hasMany(Ratings, {
     foreignKey: 'movie'
 });
-Movies.belongsTo(Users,{
-    foreignKey:'user'
-});
-
-Ratings.belongsTo(Users,{
-    foreignKey: 'user',
-});
-Ratings.belongsTo(Movies,{
-    foreignKey: 'movie'
-});
-
-Movies.belongsTo(Users,{
+Movies.belongsTo(Users, {
     foreignKey: 'user'
 });
-Users.hasMany(Movies,{
+
+Ratings.belongsTo(Users, {
+    foreignKey: 'user',
+});
+Ratings.belongsTo(Movies, {
+    foreignKey: 'movie'
+});
+
+Movies.belongsTo(Users, {
+    foreignKey: 'user'
+});
+Users.hasMany(Movies, {
     foreignKey: 'user'
 });
 

@@ -1,6 +1,6 @@
 import {Users} from "../model/model.js";
 
-export async function get(query = {}){
+export async function get(query = {}) {
 
     if (!query) {
         return {};
