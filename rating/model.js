@@ -60,9 +60,12 @@ export async function addOrEdditRating(userId,movieId,rating) {
             user: userId,
         };
     }
+    else{
+        data = data.dataValues;
+    }
     data.rating = parseInt(rating);
 
-    await Ratings.upsert(data.dataValues);
+    await Ratings.upsert(data);
 
 }
 

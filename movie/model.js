@@ -37,7 +37,7 @@ export async function remove(id, uid) {
     let m = await Movies.findByPk(id);
     let r = await Ratings.findAll({ where: { movie: id } });
     if (m.public === true || parseInt(m.user) === parseInt(uid)) {
-        await r.destroy();
+        for (const value of r) {await value.destroy();}
         await m.destroy();
     }
 
