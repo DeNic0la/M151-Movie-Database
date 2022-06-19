@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import {Router} from 'express';
 import {
     listAction,
     removeAction,
@@ -13,4 +13,4 @@ router.get('/delete/:id', removeAction);
 router.get('/form/:id?', formAction);
 router.post('/save', saveAction);
 
-export { router };
+export {router};

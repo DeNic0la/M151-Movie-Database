@@ -1,5 +1,5 @@
-import {Movies} from "../model/model.js";
-import {Op } from "sequelize";
+import {Movies, Ratings} from "../model/model.js";
+import {Op} from "sequelize";
 import {sequelize} from "../config/sequelize.js";
 
 
@@ -12,7 +12,6 @@ export async function getAll(userid) {
                 {user: userid}
             ]
         },
-
     });
 }
 
@@ -35,10 +34,11 @@ export async function get(id, uid) {
 
 export async function remove(id, uid) {
     let m = await Movies.findByPk(id);
+    let r = await Ratings.findAll({ where: { movie: id } });
     if (m.public === true || parseInt(m.user) === parseInt(uid)) {
+        for (const value of r) {await value.destroy();}
         await m.destroy();
     }
-
 }
 
 export function save(movie) {

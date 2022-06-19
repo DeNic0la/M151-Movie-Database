@@ -11,6 +11,7 @@ export let sequelize = new Sequelize(
         port: 1235,
     },
 );
+
 let isConnected = false;
 while (!isConnected){
     sequelize.authenticate().then(function() {
@@ -21,4 +22,5 @@ while (!isConnected){
         throw new Error('Datenbankverbindung konnte nicht Hergestellt werden');
     });
 }
+
 
